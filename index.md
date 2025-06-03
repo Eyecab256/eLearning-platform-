@@ -3,618 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIU-X | The Future of Global Education</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- A-Frame (VR) -->
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <!-- Three.js (3D) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Web3.js (Blockchain) -->
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <title>EYECAB INTERNATIONAL UNIVERSITY - Redefining Global Higher Education</title>
     <style>
         :root {
-            --eiu-navy: #002366;
-            --eiu-gold: #FFD700;
-            --ai-teal: #00CED1;
-            --impact-green: #2E8B57;
-            --text-light: #f8f9fa;
-            --text-dark: #212529;
-            --bg-light: #f5f7fa;
-            --card-shadow: 0 8px 30px rgba(0, 35, 102, 0.1);
+            --primary: #003366;
+            --secondary: #E31937;
+            --accent: #FFD700;
+            --light: #F5F5F5;
+            --dark: #222222;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            overflow-x: hidden;
+            color: var(--dark);
+            background-color: var(--light);
         }
-
-        h1, h2, h3, h4 {
-            font-family: 'Satoshi', sans-serif;
-            font-weight: 700;
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        /* Header with AI Assistant */
+        
+        /* Header Styles */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1rem 3rem;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
-
+        
         .logo img {
-            height: 40px;
+            height: 60px;
+            margin-right: 15px;
         }
-
-        .logo-text {
-            font-weight: 900;
+        
+        .logo-text h1 {
             font-size: 1.5rem;
-            background: linear-gradient(90deg, var(--eiu-navy), var(--ai-teal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .ai-assistant-btn {
-            background-color: var(--ai-teal);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .ai-assistant-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Main Dashboard Layout */
-        .dashboard {
-            display: flex;
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-
-        /* AI Navigation Sidebar */
-        .sidebar {
-            width: 280px;
-            background-color: white;
-            padding: 2rem 1rem;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .nav-item:hover {
-            background-color: rgba(0, 194, 209, 0.1);
-            color: var(--ai-teal);
-        }
-
-        .nav-item.active {
-            background-color: var(--eiu-navy);
-            color: white;
-        }
-
-        /* Main Content Area */
-        .main-content {
-            flex: 1;
-            padding: 2rem 3rem;
-        }
-
-        .welcome-banner {
-            background: linear-gradient(135deg, var(--eiu-navy), var(--ai-teal));
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .welcome-text h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .impact-score {
-            background-color: white;
-            color: var(--eiu-navy);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
             font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            list-style: none;
         }
-
-        /* Course Cards with 3D Effects */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+        
+        nav ul li {
+            margin-left: 1.5rem;
         }
-
-        .course-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            transform-style: preserve-3d;
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-
-        .course-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 15px 40px rgba(0, 35, 102, 0.15);
+        
+        nav ul li a:hover {
+            color: var(--accent);
         }
-
-        .course-image {
-            height: 160px;
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-        }
-
-        .course-details {
-            padding: 1.5rem;
-        }
-
-        .course-details h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .course-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .vr-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: var(--ai-teal);
             color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
+            padding: 5rem 0;
+            text-align: center;
         }
-
-        /* AI Mentor Chat Interface */
-        .ai-mentor-chat {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 350px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            transform: translateY(100%);
-            opacity: 0;
-            transition: all 0.3s;
-        }
-
-        .ai-mentor-chat.active {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .chat-header {
-            background: linear-gradient(90deg, var(--eiu-navy), var(--ai-teal));
-            color: white;
-            padding: 1rem;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        .chat-messages {
-            height: 300px;
-            padding: 1rem;
-            overflow-y: auto;
-        }
-
-        .message {
+        
+        .hero h2 {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            max-width: 80%;
-            padding: 0.8rem;
-            border-radius: 12px;
         }
-
-        .message.ai {
-            align-self: flex-start;
-            background-color: #f0f8ff;
-            border-radius: 0 12px 12px 12px;
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
-
-        .message.user {
-            align-self: flex-end;
-            background-color: var(--eiu-navy);
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
             color: white;
-            border-radius: 12px 0 12px 12px;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-
-        .chat-input {
-            display: flex;
-            padding: 1rem;
-            border-top: 1px solid #eee;
+        
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-
-        .chat-input input {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            outline: none;
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
         }
-
-        .chat-send {
-            background-color: var(--ai-teal);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            margin-left: 0.5rem;
-            cursor: pointer;
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
         }
-
-        /* VR Classroom */
-        .vr-classroom {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .vr-container {
-            width: 90%;
-            height: 90%;
-            background-color: #111;
-            border-radius: 12px;
-            overflow: hidden;
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
             position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
         }
-
-        .vr-toolbar {
+        
+        .section-title h2::after {
+            content: '';
             position: absolute;
-            bottom: 1rem;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Mission/Vision */
+        .mission-vision {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .mv-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .mv-box {
+            background-color: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .mv-box:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .mv-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        /* Schools Section */
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .school-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .school-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .school-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .school-card-content {
+            padding: 1.5rem;
+        }
+        
+        .school-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-box h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Research Section */
+        .research-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .research-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
             display: flex;
             gap: 1rem;
-            z-index: 10;
+            margin-top: 1rem;
         }
-
-        .vr-btn {
-            background-color: rgba(255, 255, 255, 0.2);
+        
+        .social-links a {
             color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
         }
-
-        /* Blockchain Credential Viewer */
-        .credential-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
         }
-
-        .credential-card {
-            width: 600px;
-            background-color: white;
-            border-radius: 12px;
-            padding: 2rem;
-            position: relative;
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
         }
-
-        .credential-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .credential-qr {
-            width: 150px;
-            height: 150px;
-            margin: 1rem auto;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Ethics Scanner */
-        .ethics-scanner {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            background-color: var(--impact-green);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .sidebar {
-                width: 220px;
-            }
-        }
-
+        
+        /* Responsive Styles */
         @media (max-width: 992px) {
-            .dashboard {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                padding: 1rem;
-                display: flex;
-                overflow-x: auto;
-            }
-            .nav-item {
-                flex-shrink: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .welcome-banner {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            .courses-grid {
+            .about-content, 
+            .research-container,
+            .mv-container {
                 grid-template-columns: 1fr;
             }
-            .ai-mentor-chat {
-                width: 90%;
-                right: 5%;
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- AI-Powered Header -->
+    <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="https://via.placeholder.com/40x40?text=EIU" alt="EIU Logo">
-            <span class="logo-text">EIU-X</span>
-        </div>
-        <div class="user-menu">
-            <button class="ai-assistant-btn" id="openAiChat">
-                <i class="fas fa-robot"></i>
-            </button>
-            <div class="user-avatar">
-                <img src="https://via.placeholder.com/40x40?text=User" alt="User" style="border-radius: 50%;">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/60x60?text=EIU" alt="EIU Logo">
+                <div class="logo-text">
+                    <h1>EYECAB INTERNATIONAL UNIVERSITY</h1>
+                    <p>Redefining Global Higher Education</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#admissions">Admissions</a></li>
+                    <li><a href="#campus">Campus</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!-- Ethics Scanner Button -->
-    <div class="ethics-scanner" id="ethicsScanner">
-        <i class="fas fa-search"></i>
-        <span>AI Ethics Scanner</span>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>The Harvard of the 21st Century</h2>
+            <p>A world-class institution combining Ivy League rigor with cutting-edge interdisciplinary learning and global impact.</p>
+            <a href="#admissions" class="cta-button">Apply Now</a>
+        </div>
+    </section>
 
-    <!-- Split Dashboard -->
-    <div class="dashboard">
-        <!-- AI Navigation Sidebar -->
-        <div class="sidebar">
-            <div class="nav-item active">
-                <i class="fas fa-home"></i>
-                <span>Dashboard</span>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About EIU</h2>
             </div>
-            <div class="nav-item">
-                <i class="fas fa-graduation-cap"></i>
-                <span>My Courses</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-flask"></i>
-                <span>Research Labs</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-users"></i>
-                <span>Collaboration Hub</span>
-            </div>
-            <div class="nav-item" id="viewCredentials">
-                <i class="fas fa-certificate"></i>
-                <span>Blockchain Credentials</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-vr-cardboard"></i>
-                <span>VR Classrooms</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-chart-line"></i>
-                <span>Impact Analytics</span>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Redefining Global Higher Education</h3>
+                    <p>EYECAB INTERNATIONAL UNIVERSITY (EIU) is a visionary institution founded in 2024 with the ambitious goal of becoming a top-50 global university within 25 years. Inspired by Harvard's excellence but designed for the modern world, EIU combines academic rigor with innovative approaches to learning and research.</p>
+                    <p>Our $500M initial funding supports the creation of a world-class campus, recruitment of top faculty, and generous scholarships to attract the brightest minds from around the world, particularly from underserved regions.</p>
+                    <p>EIU focuses on solving real-world challenges through interdisciplinary research in AI ethics, climate resilience, global health, and other critical areas that will shape our future.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Students collaborating">
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Personalized Welcome -->
-            <div class="welcome-banner">
-                <div class="welcome-text">
-                    <h1>Welcome back, Alex!</h1>
-                    <p>Your AI mentor recommends working on "Climate Resilience Lab" today</p>
+    <!-- Mission/Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-container">
+                <div class="mv-box">
+                    <h3>Our Vision</h3>
+                    <p>"To redefine global higher education by fostering innovation, leadership, and societal impact."</p>
                 </div>
-                <div class="impact-score">
-                    <i class="fas fa-bolt"></i>
-                    <span>Impact Score: 87/100</span>
-                </div>
-            </div>
-
-            <!-- AI-Suggested Courses -->
-            <h2>Your Learning Pathway</h2>
-            <div class="courses-grid">
-                <!-- Course 1: AI Ethics -->
-                <div class="course-card">
-                    <div class="course-image" style="background-image: url('https://via.placeholder.com/400x200?text=AI+Ethics');">
-                        <div class="vr-badge" onclick="openVrClassroom('ai-ethics')">
-                            <i class="fas fa-vr-cardboard"></i> VR Lab
-                        </div>
-                    </div>
-                    <div class="course-details">
-                        <h3>AI & Ethics</h3>
-                        <p>Explore ethical frameworks for artificial intelligence development.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-chart-bar"></i> 85% Mastery</span>
-                            <span><i class="fas fa-users"></i> 12 Collaborators</span>
-                        </div>
-                        <button class="ethics-scan-btn" data-course="ai-ethics" style="background-color: var(--impact-green); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; margin-top: 1rem; width: 100%;">
-                            <i class="fas fa-search"></i> Scan for Ethics
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Course 2: Climate Resilience -->
-                <div class="course-card">
-                    <div class="course-image" style="background-image: url('https://via.placeholder.com/400x200?text=Climate+Resilience');"></div>
-                    <div class="course-details">
-                        <h3>Climate Resilience Lab</h3>
-                        <p>Design solutions for carbon-neutral cities with global teams.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-chart-bar"></i> 62% Mastery</span>
-                            <span><i class="fas fa-users"></i> 8 Collaborators</span>
-                        </div>
-                        <button style="background-color: var(--eiu-navy); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; margin-top: 1rem; width: 100%;">
-                            Join Global Project
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Course 3: Quantum Computing -->
-                <div class="course-card">
-                    <div class="course-image" style="background-image: url('https://via.placeholder.com/400x200?text=Quantum+Computing');">
-                        <div class="vr-badge" onclick="openVrClassroom('quantum')">
-                            <i class="fas fa-vr-cardboard"></i> VR Lab
-                        </div>
-                    </div>
-                    <div class="course-details">
-                        <h3>Quantum Computing</h3>
-                        <p>Hands-on with quantum algorithms in our virtual lab.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-chart-bar"></i> 45% Mastery</span>
-                            <span><i class="fas fa-users"></i> 5 Collaborators</span>
-                        </div>
-                        <button style="background-color: var(--ai-teal); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; margin-top: 1rem; width: 100%;">
-                            Start Lab Session
-                        </button>
-                    </div>
+                <div class="mv-box">
+                    <h3>Our Mission</h3>
+                    <p>"To educate and empower future leaders through transformative research, interdisciplinary learning, and ethical problem-solving."</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Industry Challenges -->
-            <h2 style="margin-top: 3rem;">Industry Challenges</h2>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-image" style="background-image: url('https://via.placeholder.com/400x200?text=Tesla+Challenge');"></div>
-                    <div class="course-details">
-                        <h3>Tesla: Solar Microgrids</h3>
-                        <p>Design affordable solar solutions for emerging markets.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-award"></i> $50K Prize</span>
-                            <span><i class="fas fa-user-friends"></i> 3-5 Team</span>
-                        </div>
-                        <button style="background-color: var(--eiu-gold); color: var(--eiu-navy); border: none; padding: 0.5rem 1rem; border-radius: 6px; margin-top: 1rem; width: 100%; font-weight: 600;">
-                            Join Challenge
-                        </button>
+    <!-- Core Values Section -->
+    <section class="core-values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+            </div>
+            <div class="values-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
+                <div class="value-box">
+                    <i class="fas fa-medal" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Excellence</h3>
+                    <p>Uncompromising academic rigor in all our programs</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Innovation</h3>
+                    <p>Encouraging bold, disruptive ideas that change the world</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-globe" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Inclusivity</h3>
+                    <p>Need-blind admissions & commitment to global diversity</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Impact</h3>
+                    <p>Research that changes lives and solves real problems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-box">
+                <h3>30,000+</h3>
+                <p>Students by Year 5</p>
+            </div>
+            <div class="stat-box">
+                <h3>50%</h3>
+                <p>International Students</p>
+            </div>
+            <div class="stat-box">
+                <h3>$200M</h3>
+                <p>Research Funding Target</p>
+            </div>
+            <div class="stat-box">
+                <h3>30%</h3>
+                <p>Scholarship Recipients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Academic Programs</h2>
+            </div>
+            <div class="schools-container">
+                <div class="school-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Business School">
+                    <div class="school-card-content">
+                        <h3>EIU Business School</h3>
+                        <p>Developing ethical leaders for the digital economy with cutting-edge programs in entrepreneurship, fintech, and sustainable business.</p>
                     </div>
                 </div>
-
-                <div class="course-card">
-                    <div class="course-image" style="background-image: url('https://via.placeholder.com/400x200?text=WHO+Challenge');"></div>
-                    <div class="course-details">
-                        <h3>WHO: Pandemic Response</h3>
-                        <p>Develop AI models for early outbreak detection.</p>
-                        <div class="course-meta">
-                            <span><i class="fas fa-award"></i> $30K Prize</span>
-                            <span><i class="fas fa-user-friends"></i> 2-4 Team</span>
-                        </div>
-                        <button style="background-color: var(--eiu-gold); color: var(--eiu-n
+                <div class="school-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medical School">
+                    <div class="school-card-content">
+                        <h3>EIU Medical School</h3>
+                        <p>Pioneering approaches to global health with emphasis on AI in medicine, pandemic preparedness, and hea
