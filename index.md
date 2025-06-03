@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EYECAB INTERNATIONAL UNIVERSITY - Redefining Global Higher Education</title>
+    <title>EYECAB INTERNATIONAL UNIVERSITY </title>
     <style>
         :root {
             --primary: #003366;
@@ -10,6 +10,8 @@
             --accent: #FFD700;
             --light: #F5F5F5;
             --dark: #222222;
+            --success: #28a745;
+            --info: #17a2b8;
         }
         
         * {
@@ -75,6 +77,7 @@
         
         nav ul li {
             margin-left: 1.5rem;
+            position: relative;
         }
         
         nav ul li a {
@@ -82,16 +85,16 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            padding: 0.5rem 0;
         }
         
         nav ul li a:hover {
             color: var(--accent);
         }
         
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        nav ul li a.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
         }
         
         /* Hero Section */
@@ -105,37 +108,23 @@
             text-align: center;
         }
         
-        .hero h2 {
+        .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        /* Section Styles */
-        section {
+        /* Business Plan Content */
+        .business-plan {
             padding: 4rem 0;
+            background-color: white;
         }
         
         .section-title {
@@ -162,129 +151,80 @@
             background-color: var(--secondary);
         }
         
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .about-image img {
-            width: 100%;
+        .content-block {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: var(--light);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
-        /* Mission/Vision */
-        .mission-vision {
+        .content-block h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .content-block h4 {
+            color: var(--secondary);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
             background-color: var(--primary);
             color: white;
+            font-weight: 600;
         }
         
-        .mv-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
         
-        .mv-box {
-            background-color: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+        .comparison-table tr:hover {
+            background-color: #f1f1f1;
         }
         
-        .mv-box:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255,255,255,0.2);
-        }
-        
-        .mv-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        /* Schools Section */
-        .schools-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .school-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .school-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .school-card img {
+        /* Financial Tables */
+        .financial-table {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
         }
         
-        .school-card-content {
-            padding: 1.5rem;
-        }
-        
-        .school-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        /* Stats Section */
-        .stats {
-            background-color: var(--secondary);
-            color: white;
+        .financial-table th, .financial-table td {
+            padding: 0.8rem;
             text-align: center;
-            padding: 3rem 0;
+            border: 1px solid #ddd;
         }
         
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+        .financial-table th {
+            background-color: var(--info);
+            color: white;
         }
         
-        .stat-box h3 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+        .financial-table .highlight {
+            background-color: rgba(255, 215, 0, 0.2);
+            font-weight: 600;
         }
         
-        /* Research Section */
-        .research-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .research-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Timeline */
+        /* Roadmap Timeline */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
@@ -341,110 +281,87 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        /* Comparison Table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-        }
-        
-        .comparison-table th, .comparison-table td {
-            padding: 1rem;
-            text-align: left;
+        /* Interactive Elements */
+        .interactive-card {
             border: 1px solid #ddd;
-        }
-        
-        .comparison-table th {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-column ul li a {
-            color: #ccc;
-            text-decoration: none;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
             transition: all 0.3s ease;
+            cursor: pointer;
+            background-color: white;
         }
         
-        .footer-column ul li a:hover {
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .interactive-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .interactive-card p {
+            color: #666;
+        }
+        
+        /* Futuristic Elements */
+        .holographic-card {
+            position: relative;
+            padding: 2rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(0,51,102,0.8), rgba(227,25,55,0.8));
             color: white;
-            padding-left: 5px;
+            margin: 2rem 0;
+            overflow: hidden;
         }
         
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+        .holographic-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255,255,255,0.1),
+                rgba(255,255,255,0)
+            );
+            transform: rotate(30deg);
+            z-index: 1;
         }
         
-        .social-links a {
-            color: white;
-            background-color: rgba(255,255,255,0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .holographic-card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 3D Model Viewer */
+        .model-viewer-container {
+            width: 100%;
+            height: 500px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .model-viewer-placeholder {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #aaa;
-            font-size: 0.9rem;
+            background: linear-gradient(135deg, #003366, #E31937);
+            color: white;
+            font-size: 1.2rem;
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content, 
-            .research-container,
-            .mv-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .timeline::after {
                 left: 31px;
             }
@@ -474,35 +391,18 @@
                 text-align: center;
             }
             
-            nav {
-                margin-top: 1rem;
-            }
-            
             nav ul {
                 flex-direction: column;
                 align-items: center;
+                margin-top: 1rem;
             }
             
             nav ul li {
                 margin: 0.5rem 0;
             }
             
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .hero h2 {
+            .hero h1 {
                 font-size: 2.2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
             }
             
             .section-title h2 {
@@ -525,134 +425,392 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#academics">Academics</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#admissions">Admissions</a></li>
-                    <li><a href="#campus">Campus</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#executive-summary">Executive Summary</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#strategy">Strategy</a></li>
+                    <li><a href="#financials">Financials</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>The Harvard of the 21st Century</h2>
-            <p>A world-class institution combining Ivy League rigor with cutting-edge interdisciplinary learning and global impact.</p>
-            <a href="#admissions" class="cta-button">Apply Now</a>
+            <h1>EYECAB INTERNATIONAL UNIVERSITY</h1>
+            <p>Comprehensive Business Plan - Building the Harvard of the 21st Century</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Business Plan Content -->
+    <section class="business-plan">
         <div class="container">
-            <div class="section-title">
-                <h2>About EIU</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Redefining Global Higher Education</h3>
-                    <p>EYECAB INTERNATIONAL UNIVERSITY (EIU) is a visionary institution founded in 2024 with the ambitious goal of becoming a top-50 global university within 25 years. Inspired by Harvard's excellence but designed for the modern world, EIU combines academic rigor with innovative approaches to learning and research.</p>
-                    <p>Our $500M initial funding supports the creation of a world-class campus, recruitment of top faculty, and generous scholarships to attract the brightest minds from around the world, particularly from underserved regions.</p>
-                    <p>EIU focuses on solving real-world challenges through interdisciplinary research in AI ethics, climate resilience, global health, and other critical areas that will shape our future.</p>
+            <!-- Executive Summary -->
+            <div id="executive-summary" class="content-block">
+                <h3>1. Executive Summary</h3>
+                <div class="interactive-card">
+                    <h4>Institution Name: EYECAB INTERNATIONAL UNIVERSITY (EIU)</h4>
+                    <p><strong>Location:</strong> Flagship campus in [City/Country], with future global hubs</p>
+                    <p><strong>Founding Year:</strong> Target launch in 2024</p>
+                    <p><strong>Initial Funding Goal:</strong> $500M (Philanthropy, Government Grants, Private Investors)</p>
+                    <p><strong>Long-Term Vision:</strong> A top-50 global university within 25 years</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Students collaborating">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission/Vision Section -->
-    <section class="mission-vision">
-        <div class="container">
-            <div class="mv-container">
-                <div class="mv-box">
-                    <h3>Our Vision</h3>
-                    <p>"To redefine global higher education by fostering innovation, leadership, and societal impact."</p>
-                </div>
-                <div class="mv-box">
-                    <h3>Our Mission</h3>
-                    <p>"To educate and empower future leaders through transformative research, interdisciplinary learning, and ethical problem-solving."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values Section -->
-    <section class="core-values">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Values</h2>
-            </div>
-            <div class="values-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
-                <div class="value-box">
-                    <i class="fas fa-medal" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h3>Excellence</h3>
-                    <p>Uncompromising academic rigor in all our programs</p>
-                </div>
-                <div class="value-box">
-                    <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h3>Innovation</h3>
-                    <p>Encouraging bold, disruptive ideas that change the world</p>
-                </div>
-                <div class="value-box">
-                    <i class="fas fa-globe" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h3>Inclusivity</h3>
-                    <p>Need-blind admissions & commitment to global diversity</p>
-                </div>
-                <div class="value-box">
-                    <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h3>Impact</h3>
-                    <p>Research that changes lives and solves real problems</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container stats-container">
-            <div class="stat-box">
-                <h3>30,000+</h3>
-                <p>Students by Year 5</p>
-            </div>
-            <div class="stat-box">
-                <h3>50%</h3>
-                <p>International Students</p>
-            </div>
-            <div class="stat-box">
-                <h3>$200M</h3>
-                <p>Research Funding Target</p>
-            </div>
-            <div class="stat-box">
-                <h3>30%</h3>
-                <p>Scholarship Recipients</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Academics Section -->
-    <section id="academics" class="academics">
-        <div class="container">
-            <div class="section-title">
-                <h2>Academic Programs</h2>
-            </div>
-            <div class="schools-container">
-                <div class="school-card">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Business School">
-                    <div class="school-card-content">
-                        <h3>EIU Business School</h3>
-                        <p>Developing ethical leaders for the digital economy with cutting-edge programs in entrepreneurship, fintech, and sustainable business.</p>
+                
+                <h4>Why EIU?</h4>
+                <div class="holographic-card">
+                    <div class="holographic-card-content">
+                        <ul>
+                            <li><strong>Harvard's Legacy, Modern Approach:</strong> Combines Ivy League rigor with cutting-edge interdisciplinary learning.</li>
+                            <li><strong>Global Talent Pipeline:</strong> Focus on attracting the brightest minds from underserved regions.</li>
+                            <li><strong>Industry-Aligned Research:</strong> Solving real-world challenges (AI ethics, climate resilience, global health).</li>
+                            <li><strong>Sustainable Funding Model:</strong> Blends tuition, endowments, corporate partnerships, and online education.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="school-card">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medical School">
-                    <div class="school-card-content">
-                        <h3>EIU Medical School</h3>
-                        <p>Pioneering approaches to global health with emphasis on AI in medicine, pandemic preparedness, and hea
+            </div>
+            
+            <!-- Vision, Mission, and Core Values -->
+            <div id="vision" class="content-block">
+                <h3>2. Vision, Mission, and Core Values</h3>
+                
+                <div class="interactive-card">
+                    <h4>Vision</h4>
+                    <p>"To redefine global higher education by fostering innovation, leadership, and societal impact."</p>
+                </div>
+                
+                <div class="interactive-card">
+                    <h4>Mission</h4>
+                    <p>"To educate and empower future leaders through transformative research, interdisciplinary learning, and ethical problem-solving."</p>
+                </div>
+                
+                <h4>Core Values</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-medal" style="color: var(--accent);"></i> Excellence</h4>
+                        <p>Uncompromising academic rigor</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-lightbulb" style="color: var(--accent);"></i> Innovation</h4>
+                        <p>Encouraging bold, disruptive ideas</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-globe" style="color: var(--accent);"></i> Inclusivity</h4>
+                        <p>Need-blind admissions & global diversity</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-hand-holding-heart" style="color: var(--accent);"></i> Impact</h4>
+                        <p>Research that changes lives</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Market Analysis & Opportunity -->
+            <div class="content-block">
+                <h3>3. Market Analysis & Opportunity</h3>
+                
+                <h4>Global Demand for Elite Education</h4>
+                <ul style="margin: 1rem 0 1rem 2rem;">
+                    <li>By 2030, demand for higher education will reach 380M students (UNESCO).</li>
+                    <li>Employers prioritize interdisciplinary skills (World Economic Forum).</li>
+                    <li>Gaps in Existing Institutions:
+                        <ul style="margin: 0.5rem 0 0.5rem 2rem;">
+                            <li>Slow adaptation to tech-driven education.</li>
+                            <li>Limited seats at top universities (Harvard accepts only 3.4% of applicants).</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4>EIU's Competitive Edge</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Harvard</th>
+                            <th>EIU's Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flexibility</td>
+                            <td>Rigid curriculum</td>
+                            <td><strong>Agile, tech-integrated courses</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Cost</td>
+                            <td><strong>$80K/year tuition</strong></td>
+                            <td><strong>Scholarships for 30%+</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Research Focus</td>
+                            <td>Traditional disciplines</td>
+                            <td><strong>Emerging fields (AI, biotech, sustainability)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Academic & Research Strategy -->
+            <div id="strategy" class="content-block">
+                <h3>4. Academic & Research Strategy</h3>
+                
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>Phase 1 (Years 1-5): Foundational Programs</h4>
+                            <p><strong>Undergraduate Schools:</strong></p>
+                            <ul>
+                                <li>College of Arts & Sciences</li>
+                                <li>School of Engineering & Applied Sciences</li>
+                                <li>School of Public Policy</li>
+                            </ul>
+                            <p><strong>Flagship Research Centers:</strong></p>
+                            <ul>
+                                <li>AI & Ethics Institute</li>
+                                <li>Climate Resilience Lab</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>Phase 2 (Years 6-10): Graduate Expansion</h4>
+                            <p><strong>EIU-style Professional Schools:</strong></p>
+                            <ul>
+                                <li>EIU Business School</li>
+                                <li>EIU Medical School</li>
+                                <li>EIU Law School</li>
+                                <li>EIU School of Education</li>
+                                <li>EIU College of Computing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Pedagogical Innovation</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-atom" style="color: var(--secondary);"></i> Grand Challenges Curriculum</h4>
+                        <p>Students work on real-world problems (e.g., "Design a carbon-neutral city")</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-robot" style="color: var(--secondary);"></i> Hybrid Learning</h4>
+                        <p>AI-powered adaptive learning + in-person mentorship</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4><i class="fas fa-globe-americas" style="color: var(--secondary);"></i> Global Classrooms</h4>
+                        <p>Holographic lectures with international faculty</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Campus Development -->
+            <div class="content-block">
+                <h3>6. Campus Development & Infrastructure</h3>
+                
+                <h4>Flagship Campus (Phase 1)</h4>
+                <p><strong>Location:</strong> [City with strong tech/innovation ecosystem]</p>
+                
+                <div class="model-viewer-container">
+                    <div class="model-viewer-placeholder">
+                        <div>
+                            <i class="fas fa-university" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <p>Interactive 3D Campus Model</p>
+                            <small>(Future integration with WebGL/3D viewer)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Design Principles:</h4>
+                <ul style="margin: 1rem 0 1rem 2rem;">
+                    <li>Sustainable architecture (LEED-certified buildings)</li>
+                    <li>Smart classrooms with VR/AR integration</li>
+                    <li>Global lecture halls (holographic speakers)</li>
+                </ul>
+                
+                <h4>Digital Infrastructure</h4>
+                <ul style="margin: 1rem 0 1rem 2rem;">
+                    <li>AI-Powered LMS (Personalized learning paths)</li>
+                    <li>Virtual Research Lab (Remote collaboration with global scholars)</li>
+                    <li>Blockchain-based credential verification</li>
+                </ul>
+            </div>
+            
+            <!-- Financial Projections -->
+            <div id="financials" class="content-block">
+                <h3>9. Funding & Financial Projections</h3>
+                
+                <h4>Capital Requirements</h4>
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Budget</th>
+                            <th>Sources</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Years 1-5</td>
+                            <td>$500M</td>
+                            <td>Philanthropy (50%), Govt. Grants (20%), Investors (30%)</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>Years 6-10</td>
+                            <td>$1B</td>
+                            <td>Endowments, Corporate Partnerships, Tuition</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Revenue Streams (Projected Year 5)</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                    <div class="interactive-card">
+                        <h4>Tuition</h4>
+                        <p>40% of revenue</p>
+                        <small>(Offset by scholarships)</small>
+                    </div>
+                    <div class="interactive-card">
+                        <h4>Research Grants</h4>
+                        <p>30% of revenue</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4>Executive Education</h4>
+                        <p>20% of revenue</p>
+                    </div>
+                    <div class="interactive-card">
+                        <h4>Endowment Returns</h4>
+                        <p>10% of revenue</p>
+                    </div>
+                </div>
+                
+                <h4>Detailed 10-Year Financial Projections</h4>
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Year 1</th>
+                            <th>Year 2</th>
+                            <th>Year 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Land Acquisition</td>
+                            <td>$50M</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Campus Construction</td>
+                            <td>$100M</td>
+                            <td>$50M</td>
+                            <td>$20M</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>Total Startup Costs</td>
+                            <td>$188M</td>
+                            <td>$72M</td>
+                            <td>$34M</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Growth Roadmap -->
+            <div class="content-block">
+                <h3>12. 5-Year & 10-Year Growth Roadmap</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem; border-radius: 10px;">
+                        <h4 style="color: var(--accent);">Year 5 Targets</h4>
+                        <ul style="margin: 1rem 0 0 1.5rem;">
+                            <li>30,000 students enrolled</li>
+                            <li>$200M in research funding</li>
+                            <li>Top 200 global ranking</li>
+                        </ul>
+                    </div>
+                    <div style="background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white; padding: 2rem; border-radius: 10px;">
+                        <h4 style="color: var(--accent);">Year 10 Targets</h4>
+                        <ul style="margin: 1rem 0 0 1.5rem;">
+                            <li>50,000 students</li>
+                            <li>$2B endowment</li>
+                            <li>Top 50 global ranking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="content-block" style="background-color: var(--primary); color: white;">
+                <h3 style="color: var(--accent);">13. Conclusion & Call to Action</h3>
+                <p>EIU is not just another university—it's the future of higher education. With the right funding, leadership, and partnerships, it will rival Harvard in prestige while pioneering a new model of global, impact-driven learning.</p>
+                
+                <h4 style="margin-top: 2rem; color: white;">Next Steps for Investors/Partners:</h4>
+                <ol style="margin: 1rem 0 0 2rem;">
+                    <li>Initial Pledge: $50M+ for founding donor recognition</li>
+                    <li>Join the Board: Influence EIU's strategic direction</li>
+                    <li>Corporate Sponsorship: Name a research lab/scholarship</li>
+                </ol>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="font-size: 1.2rem; font-weight: 600;">Let's build the Harvard of the 21st century—together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 1.5rem;">EYECAB INTERNATIONAL UNIVERSITY</h4>
+                    <p>Redefining Global Higher Education</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 1.5rem;">Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@eyecab.edu</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 1.5rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>&copy; 2024 EYECAB INTERNATIONAL UNIVERSITY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for future interactive elements -->
+    <script>
+        // Future integration for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Interactive cards animation
+            const cards = document.querySelectorAll('.interactive-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
